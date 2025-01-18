@@ -14,4 +14,4 @@ Base64 Image Conversion Code based on: https://github.com/akinuri/image-to-base6
 
 Original implementation from: https://github.com/christabor-archive/metal-gear-codec
 
-**Demo:** http://christabor.github.io/metal-gear-codec/
+**Demo:** https://cabbagebishop.github.io/metal-gear-codec/
