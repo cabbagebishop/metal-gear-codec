@@ -5,7 +5,6 @@
 * <3
 * https://github.com/christabor/metal-gear-codec/
 */
-
 ;(function($){
 	$.fn.mgsCodec = function(options) {
 		var defaults = {
