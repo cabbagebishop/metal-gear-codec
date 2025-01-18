@@ -27,10 +27,10 @@ function doit() {
     tempImg = new Image();
 
     tempImg.src = 'data:image/svg+xml,' + encodeURIComponent(`
-        <svg xmlns="http://www.w3.org/2000/svg" width="702" height="448">
-            <style type="text/css">${style.item(0).innerText}</style>
-            <foreignObject style="width:702px;height:448px;">
-                ${serializer.serializeToString(source)}
+        <svg xmlns="http://www.w3.org/2000/svg" width="700" height="480">
+        <style type="text/css">${style.item(0).innerText}</style>
+            <foreignObject style="width:700px;height:480px;">
+            ${serializer.serializeToString(source)}
             </foreignObject>
         </svg>
     `);
@@ -48,7 +48,7 @@ function saveAsPng(){
     ctx.drawImage(tempImg, 0, 0);
     var a  = document.createElement('a');
     a.href = canvas.toDataURL('image/png');
-    a.download = 'image.png';
+    a.download = uuidv4() + '.png';
     a.click();
 }
 
@@ -94,7 +94,6 @@ function updateTxt(){
     let val = textInput.value.toString();
     if(val !== ''){
         codecInput.innerHTML = `<p>${textInput.value}</p>`
-        doit();
     }
 }
 
@@ -104,4 +103,10 @@ function convertImgToBase64(file, callback){
         callback(reader.result);
     };
     reader.readAsDataURL(file);
+}
+
+function uuidv4() {
+    return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+      (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
+    );
 }
